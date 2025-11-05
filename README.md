@@ -2,7 +2,7 @@
 
 Альфа версия все еще будут правки чуть позже!!!!!!
 
-[![Ссылка на выполненную работу](https://img.shields.io/badge/Демо-Посмотреть-green?style=for-the-badge)](https://test-tan-175d4.web.app/)
+[![Ссылка на выполненную работу](https://img.shields.io/badge/Демо-Посмотреть-green?style=for-the-badge)](https://test-tan2.web.app/)
 
 Демонстрационный проект экрана авторизации с поддержкой двухфакторной аутентификации (2FA), реализованный на React и TypeScript.
 

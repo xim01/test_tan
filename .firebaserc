@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "test-tan-175d4"
-  }
+    "default": "test-tan2"
+  },
+  "targets": {},
+  "etags": {}
 }
