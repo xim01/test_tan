@@ -46,6 +46,6 @@
 
 Проект реализован с соблюдением Pixel Perfect:
 
-![Экран авторизации](public/img/test_1.jpg)
-![Экран 2FA](public/img/test_2.jpg)
-![Пример ошибки](public/img/test_3.jpg)
+![Экран авторизации](public/img/PP/1.jpg)
+![Экран 2FA](public/img/PP/2.jpg)
+![Пример ошибки](public/img/PP/3.jpg)
