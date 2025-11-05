@@ -378,3 +378,20 @@ textarea.text_input.error:focus {
   text-align: left;
   animation: fadeIn 0.3s ease;
 }
+
+#test-data {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  color: var(--color);
+  padding: 1rem;
+  border-radius: var(--border-radius-lg);
+  margin: 1rem;
+  z-index: 4;
+  border: 2px solid var(--border-base-color);
+}
+a {
+  color: #1677ff;
+  cursor: pointer;
+}

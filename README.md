@@ -1,73 +1,51 @@
-# React + TypeScript + Vite
+# Проект: Система аутентификации с 2FA
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Альфа версия все еще будут правки чуть позже!!!!!!
 
-Currently, two official plugins are available:
+[![Ссылка на выполненную работу](https://img.shields.io/badge/Демо-Посмотреть-green?style=for-the-badge)](https://test-tan-175d4.web.app/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Демонстрационный проект экрана авторизации с поддержкой двухфакторной аутентификации (2FA), реализованный на React и TypeScript.
 
-## React Compiler
+## 🚀 Быстрый старт
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+Для тестирования доступны готовые учетные записи:
 
-## Expanding the ESLint configuration
+### 🔐 Аккаунт с включенной 2FA
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Email:** `user@example.com`
+- **Пароль:** `password123`
+- **Код 2FA:** `123456`
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### 👤 Аккаунт без 2FA
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **Email:** `no2fa@example.com`
+- **Пароль:** `123456`
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 📋 Функциональные требования
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- ✅ Экран авторизации с обработкой всех состояний
+- ✅ Поддержка двухфакторной аутентификации (2FA)
+- ✅ Обработка ошибок API через моки
+- ✅ Pixel Perfect верстка по предоставленным макетам
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 🛠 Технологический стек
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- **React** — пользовательский интерфейс
+- **TypeScript** — типизация
+- **TanStack Query** — управление состоянием и API-запросами
+- **Pixel Perfect** — точное соответствие дизайн-макетам
+
+## 🎯 Ключевые особенности
+
+- Полноценная имитация работы с API
+- Обработка всех сценариев ошибок авторизации
+- Адаптивная и точная верстка
+- Чистая архитектура на TypeScript
+
+## 📸 Визуальное соответствие
+
+Проект реализован с соблюдением Pixel Perfect:
+
+![Экран авторизации](public/img/test_1.jpg)
+![Экран 2FA](public/img/test_2.jpg)
+![Пример ошибки](public/img/test_3.jpg)
