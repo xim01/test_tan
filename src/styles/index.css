@@ -1,0 +1,380 @@
+/* ========================================
+   ИМПОРТЫ
+   ======================================== */
+@import "./reset/resets.css";
+@import "./variables.css";
+
+/* ========================================
+   ГЛОБАЛЬНЫЕ СТИЛИ
+   ======================================== */
+body {
+  background-color: var(--base-bg-default);
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+  font-weight: 600;
+}
+
+/* ========================================
+   ЛЕЯУТ И КОНТЕЙНЕРЫ
+   ======================================== */
+.screen-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+  position: relative;
+  z-index: 2;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.dir-vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========================================
+   КОМПОНЕНТ: ЛОГИН-ФОРМА
+   ======================================== */
+.login {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 27.5rem;
+  min-height: 23.25rem;
+  background-color: var(--base-bg);
+  border-radius: var(--base-border-radius);
+  padding: var(--padding-xl);
+  gap: var(--gap-lg);
+  text-align: center;
+  position: relative;
+}
+
+.login-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.25rem 1rem;
+}
+
+.login-logo > * {
+  cursor: pointer;
+}
+
+.login-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.login-header {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  gap: var(--xxs-gap);
+}
+
+.login-content {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  gap: 1rem;
+}
+
+/* Стрелка "назад" */
+.login_arrow {
+  position: absolute;
+  top: 24px;
+  left: 37px;
+  padding: 10px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.login_arrow:hover {
+  transform: scale(1.2);
+}
+
+/* ========================================
+   ИНПУТЫ
+   ======================================== */
+.text_input-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text_input-svg {
+  position: absolute;
+  left: 0.75rem;
+  pointer-events: none;
+  color: var(--icon-color, #888);
+}
+
+/* Пароль: отступ под иконку "глаз" */
+.text_input.password {
+  padding: 0 2.3rem;
+}
+
+.text_input-svg.password {
+  left: 0.9rem;
+}
+
+/* Общий стиль инпутов */
+.text_input,
+textarea.text_input {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0 1.9rem;
+  font-size: 1rem;
+  color: var(--color);
+  background-color: var(--input-bg, #fff);
+  border: 0.0625rem solid var(--border-base-color);
+  border-radius: var(--border-radius-lg);
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.text_input::placeholder,
+textarea.text_input::placeholder {
+  color: var(--placeholder-color);
+}
+
+/* Фокус */
+.text_input:focus,
+textarea.text_input:focus {
+  border-color: var(--border-active-color);
+  box-shadow: 0 0 0 2px #0591ff1a;
+}
+
+/* Ошибка */
+.text_input.error,
+textarea.text_input.error {
+  border-color: var(--color-error);
+}
+
+.text_input.error:focus,
+textarea.text_input.error:focus {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.15);
+}
+
+/* ========================================
+   КНОПКИ
+   ======================================== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  height: 2.5rem;
+  padding: 0 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  text-align: center;
+  white-space: nowrap;
+  border: 1px solid var(--border-base-color);
+  border-radius: var(--border-radius-lg);
+  background-color: var(--color-primary);
+  color: var(--base-color);
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, opacity 0.2s ease,
+    transform 0.1s ease;
+}
+
+.btn:hover:not(:disabled) {
+  background-color: var(--color-primary-hover, #1e6bff);
+  border-color: var(--color-primary-hover, #1e6bff);
+}
+
+.btn:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--color-primary-focus, #4d94ff);
+  outline-offset: 2px;
+}
+
+.btn:disabled,
+.btn.disabled {
+  cursor: not-allowed;
+  background-color: var(--base-bg-default);
+  color: var(--placeholder-color);
+  border-color: var(--border-base-color);
+  opacity: 0.6;
+}
+
+.btn:disabled:hover,
+.btn.disabled:hover {
+  background-color: var(--base-bg-default);
+  border-color: var(--border-base-color);
+}
+
+/* ========================================
+   БАННЕРЫ ОШИБОК
+   ======================================== */
+.form-error-banner {
+  background-color: #ffebee;
+  color: var(--color-error);
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #ffcdd2;
+  font-size: 0.875rem;
+  text-align: center;
+  margin: 0.75rem 0 1rem;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   2FA АУТЕНТИФИКАЦИЯ
+   ======================================== */
+.login-two-factor {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.login-two-factor-container {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.login-two-factor-input {
+  width: 3.55rem;
+  height: 3.7rem;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 600;
+  border: 1px solid var(--border-base-color);
+  border-radius: var(--border-radius-lg);
+  background: var(--input-bg, #fff);
+  padding-top: 0.15rem;
+  transition: all 0.2s ease;
+}
+
+.login-two-factor-input:focus {
+  border-color: var(--color-primary, #1677ff);
+  box-shadow: 0 0 0 3px rgba(22, 119, 255, 0.15);
+  outline: none;
+}
+
+.login-two-factor-input.error {
+  border-color: var(--color-error) !important;
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.15) !important;
+  animation: shake 0.4s ease;
+}
+
+.login-two-factor-error-banner {
+  color: var(--color-error);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: left;
+  margin: 0;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-5px);
+  }
+  40% {
+    transform: translateX(5px);
+  }
+  60% {
+    transform: translateX(-3px);
+  }
+  80% {
+    transform: translateX(3px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ========================================
+   МОДИФИКАТОРЫ (PP — возможно, "Phone Preview")
+   ======================================== */
+.login.login-two-factor_PP {
+  padding-top: 1rem;
+}
+
+.login-header.login-two-factor_PP {
+  gap: 0;
+}
+
+.login-two-factor .btn {
+  margin-top: 0.5rem;
+}
+
+/* Группа инпута + ошибка */
+.login-input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+}
+
+/* Кнопка глаза — кликабельная, не перекрывается */
+.text_input-toggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #888;
+  padding: 4px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text_input-toggle:hover {
+  color: #555;
+}
+
+/* Ошибка под полем */
+.input-error-message {
+  color: var(--color-error);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin: 0;
+  padding: 0 0.25rem;
+  text-align: left;
+  animation: fadeIn 0.3s ease;
+}
