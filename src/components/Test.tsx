@@ -1,38 +1,59 @@
 export default function Test() {
   return (
-    <div id="test-data">
-      <p>
-        <b>Альфа версия все еще будут правки чуть позже!!!!!!</b>
-      </p>
-      <p>
-        сылка на github:{" "}
-        <a href="https://github.com/xim01/test_tan" target="_blank">
-          https://github.com/xim01/test_tan
-        </a>
-      </p>
-      {/*  */}
-      <p>
-        <b>Нормальный сценарий</b>
-      </p>
-      <p>- Email: user@example.com</p>
-      {/*  */}
-      <p>
-        <b>Без 2FA аунтификация</b>
-      </p>
-      <p>- Email: user@example.com</p>
-      {/*  */}
-      <p>
-        <b>Аккаунт заблокирыван</b>
-      </p>
-      <p>- Email: locked@account.com</p>
-      <p>
-        <b>Email не подтвержден</b>
-      </p>
-      <p>- Email: unverified@email.com</p>
+    <details id="test-data" open>
+      <summary style={{ marginTop: "0.5rem", padding: "0 1rem ", cursor: "pointer" }}>
+        <b>🔍 Тестовые данные (альфа-версия)</b>
+      </summary>
 
-      <br />
-      <p>- Пароль: 123456</p>
-      <p>- Код 2FA: 123456</p>
-    </div>
+      <div style={{ marginTop: "0.5rem" }}>
+        <p>
+          <b>Альфа-версия — впереди ещё будут доработки!</b>
+        </p>
+        <p>
+          Ссылка на GitHub:&nbsp;
+          <a href="https://github.com/xim01/test_tan" target="_blank" rel="noopener noreferrer">
+            https://github.com/xim01/test_tan
+          </a>
+        </p>
+
+        <hr />
+
+        <p>
+          <b>Нормальный сценарий входа</b>
+        </p>
+        <p>
+          - Email: <code>user@example.com</code>
+        </p>
+
+        <p>
+          <b>Без 2FA (обычная аутентификация)</b>
+        </p>
+        <p>
+          - Email: <code>no2fa@example.com</code>
+        </p>
+
+        <p>
+          <b>Аккаунт заблокирован</b>
+        </p>
+        <p>
+          - Email: <code>locked@account.com</code>
+        </p>
+
+        <p>
+          <b>Email не подтверждён</b>
+        </p>
+        <p>
+          - Email: <code>unverified@email.com</code>
+        </p>
+
+        <br />
+        <p>
+          - Пароль: <code>123456</code>
+        </p>
+        <p>
+          - Код 2FA: <code>123456</code>
+        </p>
+      </div>
+    </details>
   );
 }
