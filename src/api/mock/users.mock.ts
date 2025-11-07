@@ -3,7 +3,7 @@ export const mockUsers: Record<
   { password: string; name: string; requires2FA: boolean; isLocked: boolean; isEmailVerified: boolean }
 > = {
   "user@example.com": {
-    password: "password123",
+    password: "123456",
     name: "Алексей",
     requires2FA: true,
     isLocked: false,
