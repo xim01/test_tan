@@ -325,7 +325,7 @@ textarea.text_input.error:focus {
 }
 
 /* ========================================
-   МОДИФИКАТОРЫ (PP — возможно, "Phone Preview")
+   МОДИФИКАТОРЫ для Pixel Perfect
    ======================================== */
 .login.login-two-factor_PP {
   padding-top: 1rem;

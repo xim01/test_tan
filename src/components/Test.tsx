@@ -2,13 +2,10 @@ export default function Test() {
   return (
     <details id="test-data" open>
       <summary style={{ marginTop: "0.5rem", padding: "0 1rem ", cursor: "pointer" }}>
-        <b>🔍 Тестовые данные (альфа-версия)</b>
+        <b>🔍 Тестовые данные</b>
       </summary>
 
       <div style={{ marginTop: "0.5rem" }}>
-        <p>
-          <b>Альфа-версия — впереди ещё будут доработки!</b>
-        </p>
         <p>
           Ссылка на GitHub:&nbsp;
           <a href="https://github.com/xim01/test_tan" target="_blank" rel="noopener noreferrer">
