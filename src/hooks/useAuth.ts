@@ -1,23 +1,7 @@
 import { useState, useEffect, useCallback } from "react";
 import { useMutation } from "@tanstack/react-query";
 import { login, verify2FA } from "../api/auth.api";
-import type { User } from "../types/auth.types";
-
-export type UseAuthReturn = {
-  tempToken: string | null;
-  user: User | null;
-  login: (credentials: { email: string; password: string }) => void;
-  verify2FA: (code: string) => void;
-  isLoginPending: boolean;
-  is2FAPending: boolean;
-  loginError: string | null;
-  twoFAError: string | null;
-  resetLogin: () => void;
-  reset2FA: () => void;
-  logout: () => void;
-  onResend: () => void;
-  isLoading: boolean;
-};
+import type { User, AuthResponse, Verify2FAResponse, UseAuthReturn } from "../types/auth.types";
 
 export const useAuth = (): UseAuthReturn => {
   const [tempToken, setTempToken] = useState<string | null>(null);
@@ -27,7 +11,7 @@ export const useAuth = (): UseAuthReturn => {
 
   const loginMutation = useMutation({
     mutationFn: login,
-    onSuccess: (data) => {
+    onSuccess: (data: AuthResponse) => {
       setLoginError(null);
       if ("requires2FA" in data) {
         setTempToken(data.token);
@@ -41,10 +25,9 @@ export const useAuth = (): UseAuthReturn => {
     },
   });
 
-  // === 2FA ===
   const verify2FAMutation = useMutation({
     mutationFn: verify2FA,
-    onSuccess: (data) => {
+    onSuccess: (data: Verify2FAResponse) => {
       setTwoFAError(null);
       localStorage.setItem("token", data.accessToken);
       setUser(data.user);

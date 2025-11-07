@@ -2,21 +2,15 @@ import React, { useState, useCallback, useMemo, useRef } from "react";
 import LoginHeader from "./LoginHeader";
 import LoginWrapper from "./LoginWrapper";
 import { User, Lock } from "lucide-react";
-import InputField from "./InputField";
+import InputField from "../../ui/InputField";
 import { VALIDATION_ERRORS } from "../../constants/validationErrors";
+import type { LoginFormProps } from "../../types/auth.types"; //
 
-interface Props {
-  onLogin: (email: string, password: string) => void;
-  isPending: boolean;
-  error: { message: string } | any;
-}
-
-export const LoginForm: React.FC<Props> = ({ onLogin, isPending, error }) => {
+export const LoginForm: React.FC<LoginFormProps> = ({ onLogin, isPending, error }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [touchedFields, setTouchedFields] = useState({ email: false, password: false });
-
   const formRef = useRef<HTMLFormElement>(null);
 
   // === ВАЛИДАЦИЯ ===
@@ -59,13 +53,11 @@ export const LoginForm: React.FC<Props> = ({ onLogin, isPending, error }) => {
   return (
     <LoginWrapper customClass="login_PP">
       <LoginHeader headerText="Sign in to your account to continue" text="" customClass="login_PP" />
-
       {hasServerError && (
         <div className="form-error-banner" role="alert">
-          {error?.message || VALIDATION_ERRORS.server}
+          {error}
         </div>
       )}
-
       <form ref={formRef} onSubmit={handleSubmit} className="dir-vertical full-width login-content" noValidate>
         <InputField
           type="email"
@@ -77,7 +69,6 @@ export const LoginForm: React.FC<Props> = ({ onLogin, isPending, error }) => {
           icon={<User size={16} />}
           autoComplete="email"
         />
-
         <InputField
           type="password"
           placeholder="Password"
@@ -91,7 +82,6 @@ export const LoginForm: React.FC<Props> = ({ onLogin, isPending, error }) => {
           isPasswordVisible={showPassword}
           onTogglePassword={() => setShowPassword(!showPassword)}
         />
-
         <button
           type="submit"
           disabled={!isFormValid || isPending}
